@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONG - Amigo dos Animais</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="p-3 bg-success text-white">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <img src="logo.png" alt="Logo da ONG" id="logo" class="me-2">
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="#sobre" class="nav-link px-2 text-white">Sobre Nós</a></li>
+                <li><a href="#projetos" class="nav-link px-2 text-white">Projetos</a></li>
+                <li><a href="#ajudar" class="nav-link px-2 text-white">Como Ajudar</a></li>
+                <li><a href="#contato" class="nav-link px-2 text-white">Contato</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<main class="container mt-5">
+    <section id="sobre" class="py-5">
+        <h2 class="text-center mb-4">Sobre Nós</h2>
+        <p class="text-justify">
+            A ONG Amigo dos Animais é dedicada a proteger e melhorar a vida dos animais abandonados e em situação de risco. Nossa missão é resgatar, reabilitar e encontrar lares amorosos para cães e gatos, além de conscientizar a comunidade sobre a importância da posse responsável e do bem-estar animal. Acreditamos que todo animal merece uma vida digna e cheia de carinho.
+        </p>
+    </section>
+
+    <section id="projetos" class="py-5">
+        <h2 class="text-center mb-4">Projetos</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Projeto Adoção Responsável</h3>
+                <p>Promovemos a adoção de animais resgatados, com avaliações rigorosas dos adotantes para garantir que os animais encontrem lares seguros e permanentes. Realizamos campanhas de conscientização sobre a importância da adoção e os cuidados necessários com os pets.</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Projeto Castração</h3>
+                <p>Oferecemos serviços de castração a preços acessíveis para controlar a população de animais de rua e prevenir o abandono. Acreditamos que a castração é uma medida fundamental para o bem-estar animal e a saúde pública.</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Projeto Lar Temporário</h3>
+                <p>Buscamos voluntários que possam oferecer lares temporários para animais resgatados enquanto aguardam a adoção.  Fornecemos apoio e recursos para os lares temporários, garantindo o bem-estar dos animais durante sua estadia.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="ajudar" class="py-5 text-center">
+        <h2 class="mb-4">Como Ajudar</h2>
+        <p>Junte-se a nós nessa missão de amor e faça a diferença na vida de muitos animais. Você pode ajudar de diversas formas:</p>
+        <a href="https://www.doe.ongamigo.com.br/" class="btn btn-success me-2">Doar</a>
+        <a href="#contato" class="btn btn-outline-success">Voluntariar</a>
+
+        <p class="mt-4">
+            Se você preferir realizar uma doação via PIX, nossa chave é:
+            <br>
+            Chave PIX: contato@ongamigo.com.br
+        </p>
+    </section>
+
+    <section id="contato" class="py-5">
+        <h2 class="text-center mb-4">Contato</h2>
+        <form onsubmit="return validarFormulario()" class="row g-3 needs-validation" novalidate>
+            <div class="col-md-6">
+                <label for="nome" class="form-label">Nome:</label>
+                <input type="text" id="nome" name="nome" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+            <div class="col-12">
+                <label for="mensagem" class="form-label">Mensagem:</label>
+                <textarea id="mensagem" name="mensagem" class="form-control"></textarea>
+            </div>
+            <div class="col-12">
+                <button class="btn btn-success" type="submit">Enviar</button>
+            </div>
+        </form>
+    </section>
+</main>
+
+<footer class="text-center py-3 bg-light mt-auto">
+    <p>&copy; 2024 ONG Amigo dos Animais. Todos os direitos reservados.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="script.js" type="module"></script>
+</body>
+</html>
