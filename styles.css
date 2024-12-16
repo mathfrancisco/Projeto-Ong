@@ -15,39 +15,77 @@ body {
     line-height: 1.6;
 }
 
-/* Header Styles */
 header {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    padding: 1.5rem 0;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 0.8rem 0;
 }
 
-.navbar {
-    transition: all 0.3s ease;
+/* Logo */
+.navbar-brand .logo {
+    height: 40px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover .logo {
+    transform: scale(1.05);
+}
+
+/* Navegação */
+.navbar-nav {
+    gap: 1rem;
 }
 
 .nav-link {
+    color: white !important;
     font-weight: 500;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.5rem 1rem !important;
+    border-radius: 4px;
+    transition: all 0.3s ease;
     position: relative;
-    padding: 0.5rem 1rem;
-    margin: 0 0.5rem;
 }
 
 .nav-link::after {
     content: '';
     position: absolute;
-    width: 0;
-    height: 2px;
     bottom: 0;
     left: 50%;
-    background-color: white;
+    width: 0;
+    height: 2px;
+    background: white;
     transition: all 0.3s ease;
     transform: translateX(-50%);
 }
 
-.nav-link:hover::after {
-    width: 100%;
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 70%;
 }
+
+.nav-link:hover,
+.nav-link.active {
+    color: white !important;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile */
+.navbar-toggler {
+    border: none;
+    padding: 0.5rem;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
 
 /* Section Styles */
 section {
@@ -75,8 +113,11 @@ section {
     background: var(--primary-color);
 }
 
-#sobre .carousel-inner img {
-    border-radius: 10px; /* Cantos arredondados nas imagens do carrossel */
+#sobre .carousel-item img {
+    display: block;
+    width: 100%;
+    height: 400px; /* Define uma altura fixa para o carrossel */
+    object-fit: cover; /* Mantém a proporção e cobre toda a área */
 }
 
 #sobre .carousel-inner {
@@ -85,30 +126,35 @@ section {
 
 /* Project Cards */
 .project-card {
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease;
-    height: 100%; /* Manter a altura consistente */
-    overflow: hidden; /* Para evitar que a imagem transborde */
-}
-.project-card img {
-    height: 200px; /* Altura fixa para as imagens */
-    object-fit: cover; /* Para que a imagem cubra toda a área */
-}
-
-.project-card .card-body {
-    padding: 2rem; /* Padding interno do card */
+    border: none; /* Remove a borda padrão do card */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); /* Sombra mais suave e moderna */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adiciona transição para a sombra */
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-0.5rem); /* Eleva o card ao passar o mouse */
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.25); /* Sombra mais intensa ao passar o mouse */
 }
 
-.project-card h3 {
-    color: var(--primary-color);
-    font-weight: 600;
-    margin-bottom: 1rem;
+.project-card img {
+    height: 200px;
+    object-fit: cover; /* Para que a imagem cubra toda a área */
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.project-card .card-body {
+    padding: 2rem;
+}
+
+.project-card .btn-success {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.project-card .btn-success:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
 }
 
 /* Buttons */
@@ -241,5 +287,16 @@ footer {
 
     .project-card {
         margin-bottom: 2rem;
+        height: 150px;
     }
 }
+
+@media (max-width: 992px) { /* Ajusta o menu para telas menores */
+    header {
+        padding: 0.5rem 0;
+    }
+    .navbar-collapse {
+        background-color: rgba(0, 0, 0, 0.7); /* Fundo mais escuro no menu mobile */
+        padding: 1rem;
+        border-radius: 10px;
+    }}

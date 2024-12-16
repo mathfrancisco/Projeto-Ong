@@ -41,7 +41,6 @@ function validarFormulario() {
 }
 
 
-
 function mostrarErro(mensagem) {
     const erroDiv = document.getElementById("erro-mensagem");
     if (erroDiv) {

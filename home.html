@@ -9,22 +9,35 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header class="p-3 bg-success text-white">
-    <div class="container">
-        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                <img src="logo.png" alt="Logo da ONG" id="logo" class="me-2">
+<header class="fixed-top">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="logo.png" alt="Logo da ONG" class="logo">
             </a>
-
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="#sobre" class="nav-link px-2 text-white">Sobre Nós</a></li>
-                <li><a href="#projetos" class="nav-link px-2 text-white">Projetos</a></li>
-                <li><a href="#ajudar" class="nav-link px-2 text-white">Como Ajudar</a></li>
-                <li><a href="#contato" class="nav-link px-2 text-white">Contato</a></li>
-            </ul>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sobre">Sobre Nós</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projetos">Projetos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ajudar">Como Ajudar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contato">Contato</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
+    </nav>
 </header>
+
 
 <main class="container mt-5">
     <section id="sobre" class="py-5">
@@ -45,13 +58,13 @@
                         </div>
                         <div class="carousel-inner rounded">
                             <div class="carousel-item active">
-                                <img src="img1.jpg" class="d-block w-100" alt="Imagem 1">
+                                <img src="images/img1.jpg" class="d-block w-100" alt="Imagem 1" >
                             </div>
                             <div class="carousel-item">
-                                <img src="img2.jpg" class="d-block w-100" alt="Imagem 2">
+                                <img src="images/img2.jpg" class="d-block w-100" alt="Imagem 2">
                             </div>
                             <div class="carousel-item">
-                                <img src="img3.jpg" class="d-block w-100" alt="Imagem 3">
+                                <img src="images/img3.jpg" class="d-block w-100" alt="Imagem 3">
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -68,34 +81,38 @@
         </div>
     </section>
 
-
-    <section id="projetos" class="py-5">
-        <h2 class="text-center mb-4 section-title">Projetos</h2>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="project-card fadeIn">
-                    <img src="adocao.jpg" class="card-img-top rounded-top" alt="Adoção Responsável">
-                    <div class="card-body">
-                        <h3 class="card-title">Projeto Adoção Responsável</h3>
-                        <p class="card-text">Promovemos a adoção de animais resgatados, com avaliações rigorosas dos adotantes para garantir que os animais encontrem lares seguros e permanentes. Realizamos campanhas de conscientização sobre a importância da adoção e os cuidados necessários com os pets.</p>
+    <section id="projetos" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4 section-title">Nossos Projetos</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card h-100 project-card fadeIn">
+                        <img src="images/adocao.png" class="card-img-top" alt="Adoção Responsável">
+                        <div class="card-body">
+                            <h3 class="card-title">Projeto Adoção Responsável</h3>
+                            <p class="card-text">Promovemos a adoção de animais resgatados, com avaliações rigorosas dos adotantes para garantir que os animais encontrem lares seguros e permanentes. Realizamos campanhas de conscientização sobre a importância da adoção e os cuidados necessários com os pets.</p>
+                            <a href="#" class="btn btn-success">Saiba Mais</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="project-card fadeIn">
-                    <img src="castracao.jpg" class="card-img-top rounded-top" alt="Projeto Castração">
-                    <div class="card-body">
-                        <h3 class="card-title">Projeto Castração</h3>
-                        <p class="card-text">Oferecemos serviços de castração a preços acessíveis para controlar a população de animais de rua e prevenir o abandono. Acreditamos que a castração é uma medida fundamental para o bem-estar animal e a saúde pública.</p>
+                <div class="col">
+                    <div class="card h-100 project-card fadeIn">
+                        <img src="images/castracao.png" class="card-img-top img-castracao" alt="Projeto Castração">
+                        <div class="card-body">
+                            <h3 class="card-title">Projeto Castração</h3>
+                            <p class="card-text">Oferecemos serviços de castração a preços acessíveis para controlar a população de animais de rua e prevenir o abandono. Acreditamos que a castração é uma medida fundamental para o bem-estar animal e a saúde pública.</p>
+                            <a href="#" class="btn btn-success">Saiba Mais</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="project-card fadeIn">
-                    <img src="lar_temp.jpg" class="card-img-top rounded-top" alt="Lar Temporário">
-                    <div class="card-body">
-                        <h3 class="card-title">Projeto Lar Temporário</h3>
-                        <p class="card-text">Buscamos voluntários que possam oferecer lares temporários para animais resgatados enquanto aguardam a adoção.  Fornecemos apoio e recursos para os lares temporários, garantindo o bem-estar dos animais durante sua estadia.</p>
+                <div class="col">
+                    <div class="card h-100 project-card fadeIn">
+                        <img src="images/lar_temp.jpg" class="card-img-top img-lar-temp" alt="Lar Temporário">
+                        <div class="card-body">
+                            <h3 class="card-title">Projeto Lar Temporário</h3>
+                            <p class="card-text">Buscamos voluntários que possam oferecer lares temporários para animais resgatados enquanto aguardam a adoção. Fornecemos apoio e recursos para os lares temporários, garantindo o bem-estar dos animais durante sua estadia.</p>
+                            <a href="#" class="btn btn-success">Saiba Mais</a>
+                        </div>
                     </div>
                 </div>
             </div>
