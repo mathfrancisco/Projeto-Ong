@@ -1,44 +1,65 @@
 // script.js
 function validarFormulario() {
-    let forms = document.querySelectorAll('.needs-validation');
-    Array.from(forms)
-        .forEach(function (form) {
-            form.addEventListener('submit', function (event) {
-                if (!form.checkValidity()) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                } else {
-                    // Lógica para enviar o formulário (AJAX, etc.)
-                    // Exemplo usando fetch API:
-                    const formData = new FormData(form);
+    const form = document.getElementById('contact-form');
 
-                    fetch('/enviar-formulario', { // Substitua '/enviar-formulario' pelo endpoint correto
-                        method: 'POST',
-                        body: formData
-                    })
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error('Erro ao enviar o formulário.');
-                            }
-                            return response.text(); // ou response.json() se o servidor retornar JSON
-                        })
-                        .then(data => {
-                            console.log('Sucesso:', data);
-                            alert("Mensagem enviada com sucesso!");
-                            form.reset();
-                        })
-                        .catch(error => {
-                            console.error('Erro:', error);
-                            alert("Erro ao enviar o formulário. Por favor, tente novamente mais tarde.");
-                        });
+    form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) { // Usa a validação HTML5
+            event.preventDefault();
+            event.stopPropagation();
+            mostrarErro("Por favor, preencha todos os campos obrigatórios.");
+        } else {
+            event.preventDefault(); // Impede envio real (sem backend)
+            console.log('Sucesso:', new FormData(form));
+            mostrarSucesso("Mensagem enviada com sucesso!");
+            form.reset();
+        }
+        form.classList.add('was-validated'); // Adiciona estilos de validação do Bootstrap
+    }, false);
+
+    // Botão "Voltar ao Topo"
+    const backToTopButton = document.createElement("button");
+    backToTopButton.innerHTML = '<i class="fas fa-arrow-up"></i>'; // Ícone de seta para cima (requer FontAwesome)
+    backToTopButton.classList.add("btn", "btn-success", "back-to-top");
+    backToTopButton.style.display = "none"; // Esconde o botão inicialmente
+    document.body.appendChild(backToTopButton);
+
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 200) { // Mostra o botão após rolar 200px
+            backToTopButton.style.display = "block";
+        } else {
+            backToTopButton.style.display = "none";
+        }
+    });
 
 
-                }
-
-                form.classList.add('was-validated');
-            }, false);
+    backToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // Rolagem suave
         });
-    return true;
+    });
+}
+
+
+
+function mostrarErro(mensagem) {
+    const erroDiv = document.getElementById("erro-mensagem");
+    if (erroDiv) {
+        erroDiv.textContent = mensagem;
+        erroDiv.style.display = "block";
+    }
+}
+
+function mostrarSucesso(mensagem) {
+    const sucessoDiv = document.getElementById("sucesso-mensagem");
+    if (sucessoDiv) {
+        sucessoDiv.textContent = mensagem;
+        sucessoDiv.style.display = "block";
+
+        setTimeout(function() {
+            sucessoDiv.style.display = "none";
+        }, 3000);
+    }
 }
 
 // Chamada da função para inicializar a validação

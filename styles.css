@@ -1,119 +1,245 @@
-/* Importe o CSS do Bootstrap */
-@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css');
+/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+:root {
+    --primary-color: #2ecc71;
+    --secondary-color: #27ae60;
+    --accent-color: #f1c40f;
+    --text-color: #2c3e50;
+    --light-bg: #f8f9fa;
+}
 
 body {
-    font-family: sans-serif;
-    color: #333;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
-/* Cabeçalho */
+/* Header Styles */
 header {
-    background-color: #4CAF50; /* Verde */
-    padding: 1rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    padding: 1.5rem 0;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
 }
 
-#logo {
-    max-width: 150px; /* Defina um tamanho máximo para o logo */
-    height: auto;
+.navbar {
+    transition: all 0.3s ease;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center; /* Centraliza verticalmente */
+.nav-link {
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
 }
 
-nav li {
-    margin: 0 1rem;
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: white;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-}
-
-
-/* Seções */
-section {
-    padding: 2rem;
-}
-
-#sobre, #projetos, #ajudar {
-    background-color: #f8f8f8; /* Cinza claro */
-}
-
-#contato {
-    background-color: #e0f2f7; /* Azul claro */
-}
-
-/* Estilos para os cards dos projetos (opcional) */
-#projetos .col-md-4 {
-    margin-bottom: 20px;
-}
-
-#projetos .col-md-4 h3 {
-    margin-bottom: 10px;
-}
-
-/* Botões */
-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 0.5rem; /* Espaçamento entre os botões */
-}
-
-
-/* Formulário */
-form label, form input, form textarea {
-    display: block;
+.nav-link:hover::after {
     width: 100%;
-    margin-bottom: 10px;
-    box-sizing: border-box; /* Para incluir padding e border na largura total */
+}
+
+/* Section Styles */
+section {
+    padding: 5rem 0;
+    position: relative;
 }
 
 
-form input[type="text"],
-form input[type="email"],
-form textarea {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    text-align: center;
+    position: relative;
 }
 
-form input[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px;
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: var(--primary-color);
+}
+
+#sobre .carousel-inner img {
+    border-radius: 10px; /* Cantos arredondados nas imagens do carrossel */
+}
+
+#sobre .carousel-inner {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil no carrossel */
+}
+
+/* Project Cards */
+.project-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    height: 100%; /* Manter a altura consistente */
+    overflow: hidden; /* Para evitar que a imagem transborde */
+}
+.project-card img {
+    height: 200px; /* Altura fixa para as imagens */
+    object-fit: cover; /* Para que a imagem cubra toda a área */
+}
+
+.project-card .card-body {
+    padding: 2rem; /* Padding interno do card */
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card h3 {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* Buttons */
+.btn {
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-success {
+    background: var(--primary-color);
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
 }
 
-/* Rodapé */
+.btn-success:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(46,204,113,0.3);
+}
+/* styles.css */
 
+#ajudar {
+    background: linear-gradient(to bottom, var(--light-bg), #e9ecef); /* Gradiente suave */
+}
+
+#ajudar .btn {
+    padding: 1rem 2.5rem; /* Aumentar padding dos botões */
+    border-radius: 30px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra mais suave */
+}
+
+#ajudar .btn-success {
+    background-color: var(--primary-color);
+    border: none;
+}
+
+#ajudar .btn-success:hover {
+    background-color: var(--secondary-color);
+    box-shadow: 0 4px 10px rgba(46,204,113,0.4);
+}
+
+#ajudar h3 {
+    color: var(--text-color);
+    margin-top: 2rem;
+    font-weight: 600;
+}
+
+#ajudar .img-fluid {
+    margin-top: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Contact Form */
+.contact-form {
+    background: white;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.form-control {
+    padding: 0.8rem;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(46,204,113,0.25);
+}
+
+#contato .alert {
+    position: relative; /* Mensagens de erro e sucesso dentro do formulário */
+    top: auto;
+    right: auto;
+    margin-bottom: 0; /* Remover margem inferior */
+}
+
+/* Footer */
 footer {
-    background-color: #f0f0f0;
-    color: #333; /* Cor do texto do rodapé */
-    padding: 1rem 0;
+    background: var(--light-bg);
+    padding: 2rem 0;
+    margin-top: 4rem;
+}
+/* Adicione ao seu arquivo styles.css */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
 }
 
+.back-to-top:hover {
+    opacity: 1;
+}
 
-/* Responsividade com Bootstrap */
+#erro-mensagem, #sucesso-mensagem {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fadeIn {
+    animation: fadeIn 1s ease forwards;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        align-items: center;
+    .section-title {
+        font-size: 2rem;
     }
 
-    nav li {
-        margin: 0.5rem 0;
+    .project-card {
+        margin-bottom: 2rem;
     }
 }
