@@ -13,12 +13,12 @@ function validarFormulario() {
             mostrarSucesso("Mensagem enviada com sucesso!");
             form.reset();
         }
-        form.classList.add('was-validated'); // Adiciona estilos de validação do Bootstrap
+        form.classList.add('was-validated'); 
     }, false);
 
     // Botão "Voltar ao Topo"
     const backToTopButton = document.createElement("button");
-    backToTopButton.innerHTML = '<i class="fas fa-arrow-up"></i>'; // Ícone de seta para cima (requer FontAwesome)
+    backToTopButton.innerHTML = '<i class="fas fa-arrow-up"></i>'; 
     backToTopButton.classList.add("btn", "btn-success", "back-to-top");
     backToTopButton.style.display = "none"; // Esconde o botão inicialmente
     document.body.appendChild(backToTopButton);
